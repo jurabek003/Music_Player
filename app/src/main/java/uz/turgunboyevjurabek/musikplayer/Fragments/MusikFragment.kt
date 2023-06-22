@@ -8,10 +8,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
 import android.widget.SeekBar
+import androidx.appcompat.app.AlertDialog
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import uz.turgunboyevjurabek.musikplayer.Madels.Music
 import uz.turgunboyevjurabek.musikplayer.R
+import uz.turgunboyevjurabek.musikplayer.databinding.DialogItemBinding
 import uz.turgunboyevjurabek.musikplayer.databinding.FragmentMusikBinding
 
 private const val ARG_PARAM1 = "param1"
@@ -47,8 +52,44 @@ class MusikFragment : Fragment() {
               onDetach()
         }
         resumeMusic()
+        popapMenu()
 
         return binding.root
+    }
+
+    private fun popapMenu() {
+        binding.menu.setOnClickListener {
+            val popupMenu=PopupMenu(requireContext(),binding.menu)
+            popupMenu.menuInflater.inflate(R.menu.menu_popap,popupMenu.menu)
+            popupMenu.show()
+            popupMenu.setOnMenuItemClickListener {menuItem->
+                when(menuItem.itemId){
+                    R.id.gif_item->{
+                        val dialog= AlertDialog.Builder(requireContext()).create()
+                        val dialogItemBinding=DialogItemBinding.inflate(layoutInflater)
+                        dialog.setView(dialogItemBinding.root)
+                        dialog.show()
+                        dialogItemBinding.gif1.setOnClickListener {
+                            binding.musikImage.setImageResource(R.drawable.gif_1)
+                            binding.musikImage2.setImageResource(R.drawable.gif_1)
+                        }
+                        dialogItemBinding.gif2.setOnClickListener {
+                            binding.musikImage.setImageResource(R.drawable.gif_2)
+                            binding.musikImage2.setImageResource(R.drawable.gif_2)
+                        }
+                        dialogItemBinding.gif3.setOnClickListener {
+                            binding.musikImage.setImageResource(R.drawable.gif_3)
+                            binding.musikImage2.setImageResource(R.drawable.gif_3)
+                        }
+                        dialogItemBinding.gif4.setOnClickListener {
+                            binding.musikImage.setImageResource(R.drawable.gif_4)
+                            binding.musikImage2.setImageResource(R.drawable.gif_4)
+                        }
+                    }
+                }
+                true
+            }
+        }
     }
 
     private fun resumeMusic() {
@@ -64,6 +105,7 @@ class MusikFragment : Fragment() {
             binding.myPlay.setOnClickListener {
                 if (mediaPlayer?.isPlaying!!){
                     mediaPlayer?.pause()
+                    binding.musikImage.onFinishTemporaryDetach()
                     binding.musikImage2.visibility=View.VISIBLE
                     binding.musikImage.visibility=View.GONE
                     binding.myPlay.setImageResource(R.drawable.ic_stop)
