@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragments.MediaFragment">
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/musik_image"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/my_sikbar"
+        android:layout_margin="20dp"
+        android:src="@drawable/aaa"
+        />
+    <ImageView
+        android:id="@+id/musik_image2"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/my_sikbar"
+        android:layout_margin="20dp"
+        android:visibility="gone"
+        android:src="@drawable/aaa"
+        />
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:clickable="true"
+        android:layout_margin="20dp"
+        android:focusable="true"
+        android:foreground="?actionBarItemBackground"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/menu"
+        android:layout_width="26dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?actionBarItemBackground"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_more"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <SeekBar
+        android:id="@+id/my_sikbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="150dp"/>
+    <ImageView
+        android:id="@+id/my_play"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_play"
+        android:clickable="true"
+        app:flow_verticalBias="120"
+        android:focusable="true"
+        android:foreground="?actionBarItemBackground"
+        app:layout_constraintTop_toBottomOf="@+id/my_sikbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="25dp"
+        android:scaleType="centerCrop"/>
+
+    <ImageView
+        android:id="@+id/musik_bofore"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?actionBarItemBackground"
+        app:layout_constraintEnd_toStartOf="@+id/my_play"
+        android:layout_margin="35dp"
+        android:src="@drawable/skip_old"
+        app:layout_constraintTop_toBottomOf="@+id/my_sikbar"/>
+    <ImageView
+        android:id="@+id/musik_next"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?actionBarItemBackground"
+        app:layout_constraintStart_toEndOf="@+id/my_play"
+        android:layout_margin="35dp"
+        android:src="@drawable/skip_next"
+        app:layout_constraintTop_toBottomOf="@+id/my_sikbar"/>
+
+    <TextView
+        android:id="@+id/music_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:maxWidth="250dp"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:fontFamily="serif"
+        android:textStyle="bold"
+        android:maxHeight="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/music_artist"
+        app:layout_constraintStart_toStartOf="parent" />
+    <TextView
+        android:id="@+id/music_artist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:maxWidth="250dp"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:maxHeight="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/my_sikbar"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/music_start_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="00 : 00"
+        android:textColor="#FF0000"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="@+id/my_sikbar"
+        app:layout_constraintTop_toBottomOf="@+id/my_sikbar" />
+    <TextView
+        android:id="@+id/music_end_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FF0000"
+        android:textSize="10sp"
+        android:text="00 : 00"
+        app:layout_constraintEnd_toEndOf="@+id/my_sikbar"
+        app:layout_constraintTop_toBottomOf="@+id/my_sikbar"
+        android:layout_margin="20dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
