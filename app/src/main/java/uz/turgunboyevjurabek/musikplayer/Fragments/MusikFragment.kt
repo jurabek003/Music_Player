@@ -62,9 +62,12 @@ class MusikFragment : Fragment() {
         return binding.root
     }
     private fun gifImage() {
-        dataBase=DataBase.newInstens(requireContext())
-        if (!dataBase.equals(null)){
+
+        try {
+            dataBase=DataBase.newInstens(requireContext())
             binding.musikImage.setImageResource(dataBase.userDao().getImage().musicPath!!)
+        }catch (e:NullPointerException){
+            binding.musikImage.setImageResource(R.drawable.aaa)
         }
     }
 
