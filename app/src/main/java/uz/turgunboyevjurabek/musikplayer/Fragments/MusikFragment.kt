@@ -4,6 +4,7 @@ import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
+import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +15,9 @@ import androidx.appcompat.app.AlertDialog
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import uz.turgunboyevjurabek.musikplayer.DataBase.DataBase
 import uz.turgunboyevjurabek.musikplayer.Madels.Music
+import uz.turgunboyevjurabek.musikplayer.Madels.User
 import uz.turgunboyevjurabek.musikplayer.R
 import uz.turgunboyevjurabek.musikplayer.databinding.DialogItemBinding
 import uz.turgunboyevjurabek.musikplayer.databinding.FragmentMusikBinding
@@ -24,6 +27,7 @@ private const val ARG_PARAM2 = "param2"
 
 class MusikFragment : Fragment() {
     private val binding by lazy { FragmentMusikBinding.inflate(layoutInflater) }
+    private lateinit var dataBase: DataBase
     private var param1: String? = null
     private var param2: String? = null
     var mediaPlayer:MediaPlayer? = null
@@ -53,8 +57,15 @@ class MusikFragment : Fragment() {
         }
         resumeMusic()
         popapMenu()
+        gifImage()
 
         return binding.root
+    }
+    private fun gifImage() {
+        dataBase=DataBase.newInstens(requireContext())
+        if (!dataBase.equals(null)){
+            binding.musikImage.setImageResource(dataBase.userDao().getImage().musicPath!!)
+        }
     }
 
     private fun popapMenu() {
@@ -65,25 +76,89 @@ class MusikFragment : Fragment() {
             popupMenu.setOnMenuItemClickListener {menuItem->
                 when(menuItem.itemId){
                     R.id.gif_item->{
-                        val dialog= AlertDialog.Builder(requireContext()).create()
+                        val dialog= BottomSheetDialog(requireContext())
+                        dataBase=DataBase.newInstens(requireContext())
                         val dialogItemBinding=DialogItemBinding.inflate(layoutInflater)
-                        dialog.setView(dialogItemBinding.root)
+                        dialog.setContentView(dialogItemBinding.root)
                         dialog.show()
                         dialogItemBinding.gif1.setOnClickListener {
                             binding.musikImage.setImageResource(R.drawable.gif_1)
                             binding.musikImage2.setImageResource(R.drawable.gif_1)
+                            val user=User()
+                            dataBase.clearAllTables()
+                            user.musicPath=R.drawable.gif_1
+                            dataBase.userDao().insertItem(user)
+                            dialog.cancel()
                         }
                         dialogItemBinding.gif2.setOnClickListener {
+                            dataBase=DataBase.newInstens(requireContext())
                             binding.musikImage.setImageResource(R.drawable.gif_2)
                             binding.musikImage2.setImageResource(R.drawable.gif_2)
+                            val user=User()
+                            dataBase.clearAllTables()
+                            user.musicPath=R.drawable.gif_2
+                            dataBase.userDao().insertItem(user)
+                            dialog.cancel()
                         }
                         dialogItemBinding.gif3.setOnClickListener {
                             binding.musikImage.setImageResource(R.drawable.gif_3)
                             binding.musikImage2.setImageResource(R.drawable.gif_3)
+                            dataBase=DataBase.newInstens(requireContext())
+                            val user=User()
+                            dataBase.clearAllTables()
+                            user.musicPath=R.drawable.gif_3
+                            dataBase.userDao().insertItem(user)
+                            dialog.cancel()
                         }
                         dialogItemBinding.gif4.setOnClickListener {
                             binding.musikImage.setImageResource(R.drawable.gif_4)
                             binding.musikImage2.setImageResource(R.drawable.gif_4)
+                            dataBase=DataBase.newInstens(requireContext())
+                            val user=User()
+                            dataBase.clearAllTables()
+                            user.musicPath=R.drawable.gif_4
+                            dataBase.userDao().insertItem(user)
+                            dialog.cancel()
+                        }
+                        dialogItemBinding.gif5.setOnClickListener {
+                            binding.musikImage.setImageResource(R.drawable.gif_5)
+                            binding.musikImage2.setImageResource(R.drawable.gif_5)
+                            dataBase=DataBase.newInstens(requireContext())
+                            val user=User()
+                            dataBase.clearAllTables()
+                            user.musicPath=R.drawable.gif_5
+                            dataBase.userDao().insertItem(user)
+                            dialog.cancel()
+                        }
+                        dialogItemBinding.gif6.setOnClickListener {
+                            binding.musikImage.setImageResource(R.drawable.gif_6)
+                            binding.musikImage2.setImageResource(R.drawable.gif_6)
+                            dataBase=DataBase.newInstens(requireContext())
+                            val user=User()
+                            dataBase.clearAllTables()
+                            user.musicPath=R.drawable.gif_6
+                            dataBase.userDao().insertItem(user)
+                            dialog.cancel()
+                        }
+                        dialogItemBinding.gif7.setOnClickListener {
+                            binding.musikImage.setImageResource(R.drawable.gif_7)
+                            binding.musikImage2.setImageResource(R.drawable.gif_7)
+                            dataBase=DataBase.newInstens(requireContext())
+                            val user=User()
+                            dataBase.clearAllTables()
+                            user.musicPath=R.drawable.gif_7
+                            dataBase.userDao().insertItem(user)
+                            dialog.cancel()
+                        }
+                        dialogItemBinding.gif8.setOnClickListener {
+                            binding.musikImage.setImageResource(R.drawable.aaa)
+                            binding.musikImage2.setImageResource(R.drawable.aaa)
+                            dataBase=DataBase.newInstens(requireContext())
+                            val user=User()
+                            dataBase.clearAllTables()
+                            user.musicPath=R.drawable.aaa
+                            dataBase.userDao().insertItem(user)
+                            dialog.cancel()
                         }
                     }
                 }

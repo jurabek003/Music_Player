@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#000000"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragments.MediaFragment">
+    tools:context=".Fragments.MusikFragment">
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/musik_image"
         android:layout_width="match_parent"
@@ -56,10 +56,12 @@
         android:src="@drawable/ic_more"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    <SeekBar
+    <androidx.appcompat.widget.AppCompatSeekBar
         android:id="@+id/my_sikbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
+        android:soundEffectsEnabled="true"
+       android:progressBackgroundTint="#6B00FF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

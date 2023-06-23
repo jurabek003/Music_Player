@@ -1,69 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-
     android:background="@drawable/shape_dialog"
+    android:padding="20dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <pl.droidsonroids.gif.GifImageView
                 android:id="@+id/gif_1"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:scaleType="centerInside"
                 android:src="@drawable/gif_1" />
 
-            <com.google.android.material.divider.MaterialDivider
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                app:dividerColor="#FF0000"/>
             <pl.droidsonroids.gif.GifImageView
                 android:id="@+id/gif_2"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:scaleType="centerInside"
                 android:src="@drawable/gif_2" />
-            <com.google.android.material.divider.MaterialDivider
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                app:dividerColor="#FF0000"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <pl.droidsonroids.gif.GifImageView
+                android:id="@+id/gif_5"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/gif_5" />
+            <pl.droidsonroids.gif.GifImageView
+                android:id="@+id/gif_8"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/aaa" />
 
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <pl.droidsonroids.gif.GifImageView
                 android:id="@+id/gif_3"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:scaleType="centerInside"
                 android:src="@drawable/gif_3" />
-            <com.google.android.material.divider.MaterialDivider
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                app:dividerColor="#FF0000"/>
-
 
             <pl.droidsonroids.gif.GifImageView
                 android:id="@+id/gif_4"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:scaleType="centerInside"
                 android:src="@drawable/gif_4" />
-            <com.google.android.material.divider.MaterialDivider
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                app:dividerColor="#FF0000"/>
-
-
         </LinearLayout>
-    </ScrollView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
 
+            <pl.droidsonroids.gif.GifImageView
+                android:id="@+id/gif_6"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/gif_6" />
+            <pl.droidsonroids.gif.GifImageView
+                android:id="@+id/gif_7"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/gif_7" />
+        </LinearLayout>
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
